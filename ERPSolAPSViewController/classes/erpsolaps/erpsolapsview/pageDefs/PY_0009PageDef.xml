@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="PY_0009PageDef"
+                Package="erpsolaps.erpsolapsview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="NoteMasterCRUD" RangeSize="25" DataControl="ERPSolAPSAppModuleDataControl"
+              id="NoteMasterCRUDIterator"/>
+    <iterator Binds="NoteDetailDetCRUD" RangeSize="25" DataControl="ERPSolAPSAppModuleDataControl"
+              id="NoteDetailDetCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="NoteMasterCRUDIterator" id="NoteCode">
+      <AttrNames>
+        <Item Value="NoteCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NoteMasterCRUDIterator" id="Submit">
+      <AttrNames>
+        <Item Value="Submit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NoteMasterCRUDIterator" id="Notecodeseq">
+      <AttrNames>
+        <Item Value="Notecodeseq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NoteMasterCRUDIterator" id="EntryDate">
+      <AttrNames>
+        <Item Value="EntryDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="NoteMasterCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <attributeValues IterBinding="NoteMasterCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="NoteMasterCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <attributeValues IterBinding="NoteMasterCRUDIterator" id="Supplierid">
+      <AttrNames>
+        <Item Value="Supplierid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NoteMasterCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NoteMasterCRUDIterator" id="RefVoucher">
+      <AttrNames>
+        <Item Value="RefVoucher"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="NoteMasterCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="NoteMasterCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="NoteMasterCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="NoteMasterCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolAPSAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolAPSAppModuleDataControl"/>
+    <methodAction id="doSuperviseNote" RequiresUpdateModel="true" Action="invokeMethod" MethodName="doSuperviseNote"
+                  IsViewObjectMethod="true" DataControl="ERPSolAPSAppModuleDataControl"
+                  InstanceName="data.ERPSolAPSAppModuleDataControl.NoteMasterCRUD"
+                  ReturnName="data.ERPSolAPSAppModuleDataControl.methodResults.doSuperviseNote_ERPSolAPSAppModuleDataControl_NoteMasterCRUD_doSuperviseNote_result"/>
+    <tree IterBinding="NoteDetailDetCRUDIterator" id="NoteDetailDetCRUD">
+      <nodeDefinition DefName="erpsolaps.erpsolapsmodel.erpsolapsvo.NoteDetailView" Name="NoteDetailDetCRUD0">
+        <AttrNames>
+          <Item Value="GlCode"/>
+          <Item Value="Costcenter"/>
+          <Item Value="txtCostCenterName"/>
+          <Item Value="txtGLDescription"/>
+          <Item Value="FcurrAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="NoteDetailDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="NoteDetailDetCRUDIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="NoteDetailDetCRUDIterator" id="txtSumAmount">
+      <AttrNames>
+        <Item Value="txtSumAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NoteMasterCRUDIterator" id="DocTypeId">
+      <AttrNames>
+        <Item Value="DocTypeId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

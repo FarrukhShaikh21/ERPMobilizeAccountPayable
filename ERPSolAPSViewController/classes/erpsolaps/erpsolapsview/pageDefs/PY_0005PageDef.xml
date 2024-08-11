@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="PY_0005PageDef"
+                Package="erpsolaps.erpsolapsview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="PaymentMasterCRUD" RangeSize="25" DataControl="ERPSolAPSAppModuleDataControl"
+              id="PaymentMasterCRUDIterator"/>
+    <iterator Binds="PaymentDetailCRUD" RangeSize="25" DataControl="ERPSolAPSAppModuleDataControl"
+              id="PaymentDetailCRUDIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="PaymentMasterCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="PaymentMasterCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="PaymentMasterCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="PaymentMasterCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolAPSAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolAPSAppModuleDataControl"/>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="PaymentDate">
+      <AttrNames>
+        <Item Value="PaymentDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="PaymentMasterCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <listOfValues IterBinding="PaymentMasterCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="PaymentType">
+      <AttrNames>
+        <Item Value="PaymentType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="PaymentMode">
+      <AttrNames>
+        <Item Value="PaymentMode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="RefVoucherNo">
+      <AttrNames>
+        <Item Value="RefVoucherNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="FcurrPayAmount">
+      <AttrNames>
+        <Item Value="FcurrPayAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="Narration">
+      <AttrNames>
+        <Item Value="Narration"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="ChequeNo">
+      <AttrNames>
+        <Item Value="ChequeNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="ChequeDate">
+      <AttrNames>
+        <Item Value="ChequeDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="PermanetId">
+      <AttrNames>
+        <Item Value="PermanetId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="SubmitDate">
+      <AttrNames>
+        <Item Value="SubmitDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="PaymentDetailCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="PaymentDetailCRUDIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="PaymentCode">
+      <AttrNames>
+        <Item Value="PaymentCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="Submit">
+      <AttrNames>
+        <Item Value="Submit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="PaymentMasterCRUDIterator" StaticList="false" Uses="LovtxtBranchName"
+                  id="txtBranchName"/>
+    <methodAction id="doSupervisePayments" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSupervisePayments" IsViewObjectMethod="true" DataControl="ERPSolAPSAppModuleDataControl"
+                  InstanceName="data.ERPSolAPSAppModuleDataControl.PaymentMasterCRUD"
+                  ReturnName="data.ERPSolAPSAppModuleDataControl.methodResults.doSupervisePayments_ERPSolAPSAppModuleDataControl_PaymentMasterCRUD_doSupervisePayments_result"/>
+    <tree IterBinding="PaymentDetailCRUDIterator" id="PaymentDetailCRUD">
+      <nodeDefinition DefName="erpsolaps.erpsolapsmodel.erpsolapsvo.PaymentDetailView" Name="PaymentDetailCRUD0">
+        <AttrNames>
+          <Item Value="InvoiceCode"/>
+          <Item Value="InvoiceType"/>
+          <Item Value="FcurrPmtAmount"/>
+          <Item Value="FcurrStaxAmt"/>
+          <Item Value="FcurrBalance"/>
+          <Item Value="txtNetPayment"/>
+          <Item Value="FcurrTaxamt"/>
+          <Item Value="TaxCode"/>
+          <Item Value="SalesTaxCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="Supplierid">
+      <AttrNames>
+        <Item Value="Supplierid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="Paymentseq">
+      <AttrNames>
+        <Item Value="Paymentseq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentDetailCRUDIterator" id="txtSumNetPay">
+      <AttrNames>
+        <Item Value="txtSumNetPay"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="BankRefNo">
+      <AttrNames>
+        <Item Value="BankRefNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="PaymentMasterCRUDIterator" StaticList="false" Uses="LovTaxCode" id="TaxCode"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="FcurrTaxAmount">
+      <AttrNames>
+        <Item Value="FcurrTaxAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="FcurrStaxAmount">
+      <AttrNames>
+        <Item Value="FcurrStaxAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="PaymentMasterCRUDIterator" StaticList="false" Uses="LovStaxCode" id="StaxCode"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="txtNetAmount">
+      <AttrNames>
+        <Item Value="txtNetAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentMasterCRUDIterator" id="Payee">
+      <AttrNames>
+        <Item Value="Payee"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

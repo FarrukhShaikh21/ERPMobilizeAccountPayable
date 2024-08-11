@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="erpsolaps.erpsolapsview" ClientType="Generic">
+  <pageMap>
+    <page path="/PY_0017.jsf" usageId="erpsolaps_erpsolapsview_PY_0017PageDef"/>
+    <page path="/WEB-INF/ERPSOLAPSBTF.xml#ERPSOLAPSBTF@ExeParaSetupFormsAPS"
+          usageId="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/ERPSOLAPSBTF.xml#ERPSOLAPSBTF@ExeParaTransactionFormsAPS"
+          usageId="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef1"/>
+    <page path="/WEB-INF/ERPSOLAPSBTF.xml#ERPSOLAPSBTF@ExeParaReverseFormsAPS"
+          usageId="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef11"/>
+    <page path="/WEB-INF/ERPSOLAPSBTF.xml#ERPSOLAPSBTF@ExeParaReverseReportsAPS"
+          usageId="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef111"/>
+    <page path="/WEB-INF/ERPSOLAPSBTF.xml#ERPSOLAPSBTF@ExeParaReverseReportsDetailAPS"
+          usageId="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef1111"/>
+    <page path="/WEB-INF/ERPSOLAPSBTF.xml#ERPSOLAPSBTF@RollbackBeforeActivityAPS"
+          usageId="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_RollbackPageDef"/>
+    <page path="/ERPSolAPSMain.jsf" usageId="erpsolaps_erpsolapsview_ERPSolAPSMainPageDef"/>
+    <page path="/PY_0005.jsf" usageId="erpsolaps_erpsolapsview_PY_0005PageDef"/>
+    <page path="/WEB-INF/ERPSOLAPSBTF.xml#ERPSOLAPSBTF@RollbackBeforeLogoutAPS"
+          usageId="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_RollbackPageDef1"/>
+    <page path="/PY_0019.jsf" usageId="erpsolaps_erpsolapsview_PY_0019PageDef"/>
+    <page path="/PY_0020.jsf" usageId="erpsolaps_erpsolapsview_PY_0020PageDef"/>
+    <page path="/PY_0020_SEARCH.jsf" usageId="erpsolaps_erpsolapsview_PY_0020_SEARCHPageDef"/>
+    <page path="/WEB-INF/ERPSOLAPSBTF.xml#ERPSOLAPSBTF@doSetPayableReportDefaults"
+          usageId="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_doSetPayableReportDefaultsPageDef"/>
+    <page path="/PY_0005_SEARCH.jsf" usageId="erpsolaps_erpsolapsview_PY_0005_SEARCHPageDef"/>
+    <page path="/PY_0017_SEARCH.jsf" usageId="erpsolaps_erpsolapsview_PY_0017_SEARCHPageDef"/>
+    <page path="/PY_0021.jsf" usageId="erpsolaps_erpsolapsview_PY_0021PageDef"/>
+    <page path="/WEB-INF/ERPSOLAPSBTF.xml#ERPSOLAPSBTF@doSetPayableReportDefForReverse"
+          usageId="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_doSetPayableReportDefaults1PageDef"/>
+    <page path="/PY_0009.jsf" usageId="erpsolaps_erpsolapsview_PY_0009PageDef"/>
+    <page path="/PY_0009_SEARCH.jsf" usageId="erpsolaps_erpsolapsview_PY_0009_SEARCHPageDef"/>
+    <page path="/PU_0010.jsf" usageId="erpsolaps_erpsolapsview_PU_0010PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="erpsolaps_erpsolapsview_PY_0017PageDef" path="erpsolaps.erpsolapsview.pageDefs.PY_0017PageDef"/>
+    <page id="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef"
+          path="erpsolaps.erpsolapsview.pageDefs.ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef"/>
+    <page id="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef1"
+          path="erpsolaps.erpsolapsview.pageDefs.ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef1"/>
+    <page id="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef11"
+          path="erpsolaps.erpsolapsview.pageDefs.ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef11"/>
+    <page id="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef111"
+          path="erpsolaps.erpsolapsview.pageDefs.ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef111"/>
+    <page id="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef1111"
+          path="erpsolaps.erpsolapsview.pageDefs.ERPSOLAPSBTF_ERPSOLAPSBTF_ExecuteWithParamsPageDef1111"/>
+    <page id="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_RollbackPageDef"
+          path="erpsolaps.erpsolapsview.pageDefs.ERPSOLAPSBTF_ERPSOLAPSBTF_RollbackPageDef"/>
+    <page id="erpsolaps_erpsolapsview_ERPSolAPSMainPageDef"
+          path="erpsolaps.erpsolapsview.pageDefs.ERPSolAPSMainPageDef"/>
+    <page id="erpsolaps_erpsolapsview_PY_0005PageDef" path="erpsolaps.erpsolapsview.pageDefs.PY_0005PageDef"/>
+    <page id="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_RollbackPageDef1"
+          path="erpsolaps.erpsolapsview.pageDefs.ERPSOLAPSBTF_ERPSOLAPSBTF_RollbackPageDef1"/>
+    <page id="erpsolaps_erpsolapsview_PY_0019PageDef" path="erpsolaps.erpsolapsview.pageDefs.PY_0019PageDef"/>
+    <page id="erpsolaps_erpsolapsview_PY_0020PageDef" path="erpsolaps.erpsolapsview.pageDefs.PY_0020PageDef"/>
+    <page id="erpsolaps_erpsolapsview_PY_0020_SEARCHPageDef"
+          path="erpsolaps.erpsolapsview.pageDefs.PY_0020_SEARCHPageDef"/>
+    <page id="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_doSetPayableReportDefaultsPageDef"
+          path="erpsolaps.erpsolapsview.pageDefs.ERPSOLAPSBTF_ERPSOLAPSBTF_doSetPayableReportDefaultsPageDef"/>
+    <page id="erpsolaps_erpsolapsview_PY_0005_SEARCHPageDef"
+          path="erpsolaps.erpsolapsview.pageDefs.PY_0005_SEARCHPageDef"/>
+    <page id="erpsolaps_erpsolapsview_PY_0017_SEARCHPageDef"
+          path="erpsolaps.erpsolapsview.pageDefs.PY_0017_SEARCHPageDef"/>
+    <page id="erpsolaps_erpsolapsview_PY_0021PageDef" path="erpsolaps.erpsolapsview.pageDefs.PY_0021PageDef"/>
+    <page id="erpsolaps_erpsolapsview_ERPSOLAPSBTF_ERPSOLAPSBTF_doSetPayableReportDefaults1PageDef"
+          path="erpsolaps.erpsolapsview.pageDefs.ERPSOLAPSBTF_ERPSOLAPSBTF_doSetPayableReportDefaults1PageDef"/>
+    <page id="erpsolaps_erpsolapsview_PY_0009PageDef" path="erpsolaps.erpsolapsview.pageDefs.PY_0009PageDef"/>
+    <page id="erpsolaps_erpsolapsview_PY_0009_SEARCHPageDef"
+          path="erpsolaps.erpsolapsview.pageDefs.PY_0009_SEARCHPageDef"/>
+    <page id="erpsolaps_erpsolapsview_PU_0010PageDef" path="erpsolaps.erpsolapsview.pageDefs.PU_0010PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ERPSolTempAppModuleDataControl" Package="erpsoltemp.erpsoltempmodel.erpsoltempam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolTempAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ERPSolAPSAppModuleDataControl" Package="erpsolaps.erpsolapsmodel.erpsolapsam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolAPSAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>
