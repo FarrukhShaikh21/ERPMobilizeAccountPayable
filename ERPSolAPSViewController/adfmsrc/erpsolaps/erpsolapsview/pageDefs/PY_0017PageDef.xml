@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="PY_0017PageDef"
+                Package="erpsolaps.erpsolapsview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="OtherBillsCRUD" RangeSize="25" DataControl="ERPSolAPSAppModuleDataControl"
+              id="OtherBillsCRUDIterator"/>
+    <iterator Binds="OtherBillDetDetCRUD" RangeSize="25" DataControl="ERPSolAPSAppModuleDataControl"
+              id="OtherBillDetDetCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="OtherBillsCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OtherBillsCRUDIterator" id="Billid">
+      <AttrNames>
+        <Item Value="Billid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="OtherBillsCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <attributeValues IterBinding="OtherBillsCRUDIterator" id="BillDate">
+      <AttrNames>
+        <Item Value="BillDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="OtherBillsCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <attributeValues IterBinding="OtherBillsCRUDIterator" id="Supref">
+      <AttrNames>
+        <Item Value="Supref"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OtherBillsCRUDIterator" id="SuprefDate">
+      <AttrNames>
+        <Item Value="SuprefDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OtherBillsCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OtherBillsCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OtherBillsCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="OtherBillsCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OtherBillsCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="OtherBillsCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolAPSAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolAPSAppModuleDataControl"/>
+    <tree IterBinding="OtherBillDetDetCRUDIterator" id="OtherBillDetDetCRUD">
+      <nodeDefinition DefName="erpsolaps.erpsolapsmodel.erpsolapsvo.OtherBillDetView" Name="OtherBillDetDetCRUD0">
+        <AttrNames>
+          <Item Value="Glcode"/>
+          <Item Value="Costcenter"/>
+          <Item Value="txtGLDescription"/>
+          <Item Value="txtCostCenterName"/>
+          <Item Value="FcurrAmount"/>
+          <Item Value="FcurrStAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OtherBillDetDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="OtherBillDetDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="OtherBillDetDetCRUDIterator" id="txtSumAmount">
+      <AttrNames>
+        <Item Value="txtSumAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doSuperviseOtherBills" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseOtherBills" IsViewObjectMethod="true"
+                  DataControl="ERPSolAPSAppModuleDataControl"
+                  InstanceName="data.ERPSolAPSAppModuleDataControl.OtherBillsCRUD"
+                  ReturnName="data.ERPSolAPSAppModuleDataControl.methodResults.doSuperviseOtherBills_ERPSolAPSAppModuleDataControl_OtherBillsCRUD_doSuperviseOtherBills_result"/>
+    <attributeValues IterBinding="OtherBillsCRUDIterator" id="Billidseq">
+      <AttrNames>
+        <Item Value="Billidseq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OtherBillsCRUDIterator" id="BankRefNo">
+      <AttrNames>
+        <Item Value="BankRefNo"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

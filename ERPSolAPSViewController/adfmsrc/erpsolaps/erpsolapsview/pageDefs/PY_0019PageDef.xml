@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="PY_0019PageDef"
+                Package="erpsolaps.erpsolapsview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="VWPayPayableReportRO" RangeSize="25" DataControl="ERPSolAPSAppModuleDataControl"
+              id="VWPayPayableReportROIterator"/>
+    <iterator Binds="SysProgramDetRO" RangeSize="25" DataControl="ERPSolTempAppModuleDataControl"
+              id="SysProgramDetROIterator"/>
+    <searchRegion Binds="SysProgramDetROIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SysProgramDetROQuery"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="VWPayPayableReportROIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <listOfValues IterBinding="VWPayPayableReportROIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <attributeValues IterBinding="VWPayPayableReportROIterator" id="Pk">
+      <AttrNames>
+        <Item Value="Pk"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VWPayPayableReportROIterator" StaticList="false" Uses="LovtxtCompanyId" id="txtCompanyId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="VWPayPayableReportROIterator" id="txtSupplierId">
+      <AttrNames>
+        <Item Value="txtSupplierId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VWPayPayableReportROIterator" id="txtFromDate">
+      <AttrNames>
+        <Item Value="txtFromDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VWPayPayableReportROIterator" id="txtToDate">
+      <AttrNames>
+        <Item Value="txtToDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SysProgramDetROIterator" id="SysProgramDetRO">
+      <nodeDefinition DefName="erpsoltemp.erpsoltempmodel.erpsoltempvo.SysProgramView" Name="SysProgramDetRO0">
+        <AttrNames>
+          <Item Value="Moduleid"/>
+          <Item Value="ModuleName"/>
+          <Item Value="ExecName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="VWPayPayableReportROIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

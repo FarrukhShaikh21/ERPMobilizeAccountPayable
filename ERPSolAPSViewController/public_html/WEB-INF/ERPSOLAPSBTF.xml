@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ERPSOLAPSBTF">
+    <default-activity>doERPSolAPSSessionGlobals</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <task-flow-reentry>
+      <reentry-not-allowed/>
+    </task-flow-reentry>
+    <input-parameter-definition id="__21">
+      <name>P_ADF_USERCODE</name>
+      <value>#{pageFlowScope.ERPSolAPSPageFlowBean.ERPSolStrUserCode}</value>
+      <class>erpsolaps.erpsolapsview.erpsolapsclass.ERPSolAPSBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__22">
+      <name>P_ADF_USER_LOCATIONCODE</name>
+      <value>#{pageFlowScope.ERPSolAPSPageFlowBean.ERPSolStrUserLocationCode}</value>
+      <class>erpsolaps.erpsolapsview.erpsolapsclass.ERPSolAPSBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__23">
+      <name>P_ADF_USER_STORECODE</name>
+      <value>#{pageFlowScope.ERPSolAPSPageFlowBean.ERPSolStrUserStoreCode}</value>
+      <class>erpsolaps.erpsolapsview.erpsolapsclass.ERPSolAPSBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__24">
+      <name>P_ADF_USER_REGIONCODE</name>
+      <value>#{pageFlowScope.ERPSolAPSPageFlowBean.ERPSolStrUserRegionCode}</value>
+      <class>erpsolaps.erpsolapsview.erpsolapsclass.ERPSolAPSBean</class>
+    </input-parameter-definition>
+    <managed-bean id="__1">
+      <managed-bean-name>ERPSolTempBean</managed-bean-name>
+      <managed-bean-class>erpsoltemp.erpsoltempview.erptempclass.ERPSolutionTemplateBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__2">
+      <managed-bean-name>ERPSolAPSPageFlowBean</managed-bean-name>
+      <managed-bean-class>erpsolaps.erpsolapsview.erpsolapsclass.ERPSolAPSBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <exception-handler>ERPSolAPSException</exception-handler>
+    <view id="ERPSolAPSException">
+      <page>/ERPSolAPSException.jsf</page>
+    </view>
+    <view id="ERPSolAPSMain">
+      <page>/ERPSolAPSMain.jsf</page>
+    </view>
+    <method-call id="doERPGotoAPSActivity">
+      <method>#{pageFlowScope.ERPSolTempBean.doGotoERPSolActivity}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
+    </method-call>
+    <method-call id="doERPSolAPSSessionGlobals">
+      <method>#{pageFlowScope.ERPSolAPSPageFlowBean.doSetERPSolAPSSessionGlobals}</method>
+      <outcome>
+        <fixed-outcome>ERP-GOTO-APS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeParaSetupFormsAPS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-GOTO-APS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeParaTransactionFormsAPS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-GOTO-APS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeParaReverseFormsAPS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-GOTO-APS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeParaReverseReportsAPS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-GOTO-APS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeParaReverseReportsDetailAPS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-GOTO-APS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="RollbackBeforeActivityAPS">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACTStartERPSolutionTaskFlow</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="PY_0017">
+      <page>/PY_0017.jsf</page>
+    </view>
+    <task-flow-return id="ERPSOL-RETURN-FROM-APS">
+      <outcome>
+        <name>ERPSOL-RETURN-FROM-APS</name>
+      </outcome>
+    </task-flow-return>
+    <view id="PY_0017_SEARCH">
+      <page>/PY_0017_SEARCH.jsf</page>
+    </view>
+    <view id="PY_0005">
+      <page>/PY_0005.jsf</page>
+    </view>
+    <view id="PY_0005_SEARCH">
+      <page>/PY_0005_SEARCH.jsf</page>
+    </view>
+    <method-call id="RollbackBeforeLogoutAPS">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-LOGOUT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="ACT-ERP-SOL-LOGOUT">
+      <outcome>
+        <name>ACT-ERP-SOL-LOGOUT</name>
+      </outcome>
+    </task-flow-return>
+    <view id="PY_0020">
+      <page>/PY_0020.jsf</page>
+    </view>
+    <view id="PY_0020_SEARCH">
+      <page>/PY_0020_SEARCH.jsf</page>
+    </view>
+    <view id="PY_0019">
+      <page>/PY_0019.jsf</page>
+    </view>
+    <method-call id="doSetPayableReportDefaults">
+      <method>#{bindings.doSetPayableReportDefaults.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-PY-0019</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="PY_0021">
+      <page>/PY_0021.jsf</page>
+    </view>
+    <method-call id="doSetPayableReportDefForReverse">
+      <method>#{bindings.doSetPayableReportDefaults.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-PY_0021</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="PY_0009">
+      <page>/PY_0009.jsf</page>
+    </view>
+    <view id="PY_0009_SEARCH">
+      <page>/PY_0009_SEARCH.jsf</page>
+    </view>
+    <view id="PU_0010">
+      <page>/PU_0010.jsf</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id>doERPSolAPSSessionGlobals</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>ERP-GOTO-APS-MAIN</from-outcome>
+        <to-activity-id>ExeParaSetupFormsAPS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>ExeParaSetupFormsAPS</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>ERP-GOTO-APS-MAIN</from-outcome>
+        <to-activity-id>ExeParaTransactionFormsAPS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>ExeParaTransactionFormsAPS</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>ERP-GOTO-APS-MAIN</from-outcome>
+        <to-activity-id>ExeParaReverseFormsAPS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>ExeParaReverseFormsAPS</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>ERP-GOTO-APS-MAIN</from-outcome>
+        <to-activity-id>ExeParaReverseReportsAPS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>ExeParaReverseReportsAPS</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>ERP-GOTO-APS-MAIN</from-outcome>
+        <to-activity-id>ExeParaReverseReportsDetailAPS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>ExeParaReverseReportsDetailAPS</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>ERP-GOTO-APS-MAIN</from-outcome>
+        <to-activity-id>ERPSolAPSMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id>RollbackBeforeActivityAPS</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>doERPGotoAPSActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>RollbackBeforeActivityAPS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>doERPGotoAPSActivity</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome>ERP-ACT-PY-0017</from-outcome>
+        <to-activity-id>PY_0017</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__31">
+        <from-outcome>ERP-ACT-PY-0005</from-outcome>
+        <to-activity-id>PY_0005</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__42">
+        <from-outcome>ERP-ACT-PY-0020</from-outcome>
+        <to-activity-id>PY_0020</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__47">
+        <from-outcome>ERP-ACT-PY-0019</from-outcome>
+        <to-activity-id>doSetPayableReportDefaults</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__52">
+        <from-outcome>ERP-ACT-PY-0021</from-outcome>
+        <to-activity-id>doSetPayableReportDefForReverse</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__50">
+        <from-outcome>ERP-ACT-PY-0009</from-outcome>
+        <to-activity-id>PY_0009</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__60">
+        <from-outcome>ERP-ACT-PU-0010</from-outcome>
+        <to-activity-id>PU_0010</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id>PY_0017</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome>ERP-ACT-PY_0017-SEARCH</from-outcome>
+        <to-activity-id>PY_0017_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__27">
+      <from-activity-id>PY_0017_SEARCH</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome>ERP-ACT-PY_0017-SEARCH-BACK</from-outcome>
+        <to-activity-id>PY_0017</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__30">
+        <from-outcome>ERP-ACT-EXIT-FORM-APS</from-outcome>
+        <to-activity-id>ERPSolAPSMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__32">
+      <from-activity-id>PY_0005</from-activity-id>
+      <control-flow-case id="__33">
+        <from-outcome>ERP-ACT-PY-0005-SEARCH</from-outcome>
+        <to-activity-id>PY_0005_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__34">
+      <from-activity-id>PY_0005_SEARCH</from-activity-id>
+      <control-flow-case id="__35">
+        <from-outcome>ERP-ACT-PY-0005-SEARCH-BACK</from-outcome>
+        <to-activity-id>PY_0005</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__37">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>RollbackBeforeLogoutAPS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__38">
+      <from-activity-id>RollbackBeforeLogoutAPS</from-activity-id>
+      <control-flow-case id="__39">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>ACT-ERP-SOL-LOGOUT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__40">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__41">
+        <from-outcome>ACT-ERPSOL-RETURN-FROM-APS</from-outcome>
+        <to-activity-id>ERPSOL-RETURN-FROM-APS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__43">
+      <from-activity-id>PY_0020</from-activity-id>
+      <control-flow-case id="__44">
+        <from-outcome>ERP-ACT-PY-0020-SEARCH</from-outcome>
+        <to-activity-id>PY_0020_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__45">
+      <from-activity-id>PY_0020_SEARCH</from-activity-id>
+      <control-flow-case id="__46">
+        <from-outcome>ERP-ACT-PY-0020-SEARCH-BACK</from-outcome>
+        <to-activity-id>PY_0020</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__48">
+      <from-activity-id>doSetPayableReportDefaults</from-activity-id>
+      <control-flow-case id="__49">
+        <from-outcome>ERP-ACT-PY-0019</from-outcome>
+        <to-activity-id>PY_0019</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__53">
+      <from-activity-id>doSetPayableReportDefForReverse</from-activity-id>
+      <control-flow-case id="__54">
+        <from-outcome>ERP-ACT-PY_0021</from-outcome>
+        <to-activity-id>PY_0021</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__51">
+      <from-activity-id>PY_0009</from-activity-id>
+      <control-flow-case id="__55">
+        <from-outcome>ERP-ACT-PY-0009-SEARCH</from-outcome>
+        <to-activity-id>PY_0009_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__56">
+      <from-activity-id>PY_0009_SEARCH</from-activity-id>
+      <control-flow-case id="__57">
+        <from-outcome>ERP-ACT-PY-0009-SEARCH-BACK</from-outcome>
+        <to-activity-id>PY_0009</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="PY_0021PageDef"
+                Package="erpsolaps.erpsolapsview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="VWPayPayableReportRO" RangeSize="25" DataControl="ERPSolAPSAppModuleDataControl"
+              id="VWPayPayableReportROIterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="VWPayPayableReportROIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <listOfValues IterBinding="VWPayPayableReportROIterator" StaticList="false" Uses="LovtxtDocumentId"
+                  id="txtDocumentId"/>
+    <attributeValues IterBinding="VWPayPayableReportROIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VWPayPayableReportROIterator" StaticList="false" Uses="LOV_txtDocTypeId" id="txtDocTypeId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="VWPayPayableReportROIterator" id="txtDocumentDescription">
+      <AttrNames>
+        <Item Value="txtDocumentDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doSetERPSolAPDocumentUnsubmit" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSetERPSolAPDocumentUnsubmit" IsViewObjectMethod="true"
+                  DataControl="ERPSolAPSAppModuleDataControl"
+                  InstanceName="data.ERPSolAPSAppModuleDataControl.VWPayPayableReportRO"
+                  ReturnName="data.ERPSolAPSAppModuleDataControl.methodResults.doSetERPSolAPDocumentUnsubmit_ERPSolAPSAppModuleDataControl_VWPayPayableReportRO_doSetERPSolAPDocumentUnsubmit_result"/>
+    <list IterBinding="VWPayPayableReportROIterator" StaticList="false" Uses="LovtxtCompanyId" id="txtCompanyId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>
