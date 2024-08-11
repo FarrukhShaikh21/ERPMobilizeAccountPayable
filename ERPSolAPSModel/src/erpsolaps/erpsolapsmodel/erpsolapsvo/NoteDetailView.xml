@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NoteDetailView"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  RowClass="erpsolaps.erpsolapsmodel.erpsolapsvo.NoteDetailViewRowImpl"
+  ComponentClass="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsViewObjectImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_objectSuperClassName"
+      Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsViewObjectImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="AccVWCostCenterQVO"
+    ViewObjectName="erpsolaps.erpsolapsmodel.erpsolapsqvo.VWCostCenterQVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="VWCostCenterLastLevelOnlyVC"
+      FullName="erpsolaps.erpsolapsmodel.erpsolapsqvo.VWCostCenterQVO.VWCostCenterLastLevelOnlyVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccVWChartOfAccountQVO"
+    ViewObjectName="erpsolaps.erpsolapsmodel.erpsolapsqvo.VWChartOfAccountQVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Costcenter"
+    ListVOName="AccVWCostCenterQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Costcenter"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtCostCenterName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Costcenterid"/>
+      <Item Value="Description"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="VWCostCenterLastLevelOnlyVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovGlCode"
+    ListVOName="AccVWChartOfAccountQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GlCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtGLDescription"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Glcode"/>
+      <Item Value="Description"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="Glcode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="NoteDetail"
+    Entity="erpsolaps.erpsolapsmodel.erpsolapseo.NoteDetail"/>
+  <ViewAttribute
+    Name="SeqNo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SeqNo"
+    EntityUsage="NoteDetail"
+    AliasName="SEQ_NO"/>
+  <ViewAttribute
+    Name="NoteCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NoteCode"
+    EntityUsage="NoteDetail"
+    AliasName="NOTE_CODE"/>
+  <ViewAttribute
+    Name="RefDocument"
+    PrecisionRule="true"
+    EntityAttrName="RefDocument"
+    EntityUsage="NoteDetail"
+    AliasName="REF_DOCUMENT"/>
+  <ViewAttribute
+    Name="Amount"
+    PrecisionRule="true"
+    EntityAttrName="Amount"
+    EntityUsage="NoteDetail"
+    AliasName="AMOUNT"/>
+  <ViewAttribute
+    Name="Balance"
+    PrecisionRule="true"
+    EntityAttrName="Balance"
+    EntityUsage="NoteDetail"
+    AliasName="BALANCE"/>
+  <ViewAttribute
+    Name="Createdby"
+    PrecisionRule="true"
+    EntityAttrName="Createdby"
+    EntityUsage="NoteDetail"
+    AliasName="CREATEDBY"/>
+  <ViewAttribute
+    Name="Modifiedby"
+    PrecisionRule="true"
+    EntityAttrName="Modifiedby"
+    EntityUsage="NoteDetail"
+    AliasName="MODIFIEDBY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="NoteDetail"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="ModifiedDate"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedDate"
+    EntityUsage="NoteDetail"
+    AliasName="MODIFIED_DATE"/>
+  <ViewAttribute
+    Name="DocTypeId"
+    PrecisionRule="true"
+    EntityAttrName="DocTypeId"
+    EntityUsage="NoteDetail"
+    AliasName="DOC_TYPE_ID"/>
+  <ViewAttribute
+    Name="GlCode"
+    PrecisionRule="true"
+    EntityAttrName="GlCode"
+    EntityUsage="NoteDetail"
+    AliasName="GL_CODE"
+    LOVName="LovGlCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Costcenter"
+    PrecisionRule="true"
+    EntityAttrName="Costcenter"
+    EntityUsage="NoteDetail"
+    AliasName="COSTCENTER"
+    LOVName="LOV_Costcenter">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RefDocumentType"
+    PrecisionRule="true"
+    EntityAttrName="RefDocumentType"
+    EntityUsage="NoteDetail"
+    AliasName="REF_DOCUMENT_TYPE"/>
+  <ViewAttribute
+    Name="FcurrAmount"
+    PrecisionRule="true"
+    EntityAttrName="FcurrAmount"
+    EntityUsage="NoteDetail"
+    AliasName="FCURR_AMOUNT"/>
+  <ViewAttribute
+    Name="Gmoveid"
+    PrecisionRule="true"
+    EntityAttrName="Gmoveid"
+    EntityUsage="NoteDetail"
+    AliasName="GMOVEID"/>
+  <ViewAttribute
+    Name="GmBalance"
+    PrecisionRule="true"
+    EntityAttrName="GmBalance"
+    EntityUsage="NoteDetail"
+    AliasName="GM_BALANCE"/>
+  <ViewAttribute
+    Name="GmDocTypeId"
+    PrecisionRule="true"
+    EntityAttrName="GmDocTypeId"
+    EntityUsage="NoteDetail"
+    AliasName="GM_DOC_TYPE_ID"/>
+  <ViewAttribute
+    Name="Notecodeseq"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Notecodeseq"
+    EntityUsage="NoteDetail"
+    AliasName="NOTECODESEQ"/>
+  <ViewAttribute
+    Name="txtCostCenterName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[VWCostCenterQVO?.Description]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolaps.erpsolapsmodel.erpsolapsvo.NoteDetailView.txtCostCenterName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="Costcenter"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtGLDescription"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[VWChartOfAccountQVO?.Description]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolaps.erpsolapsmodel.erpsolapsvo.NoteDetailView.txtGLDescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="GlCode"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSumAmount"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression><![CDATA[getRowSet().sum("FcurrAmount")]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="VWCostCenterQVO"
+    ViewLink="erpsolaps.erpsolapsmodel.erpsolapslink.VwCostCenterNoteDetailCostCenterIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="VWChartOfAccountQVO"
+    ViewLink="erpsolaps.erpsolapsmodel.erpsolapslink.VwChartOfAccountNoteDetailGLCodeLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="NoteMasterView"
+    ViewLink="erpsolaps.erpsolapsmodel.erpsolapsvo.SysC0023735Link"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolaps.erpsolapsmodel.ERPSolAPSModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
